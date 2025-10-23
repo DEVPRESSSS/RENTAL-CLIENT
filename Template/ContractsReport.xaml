@@ -1,0 +1,102 @@
+﻿<Window x:Class="Rental.Template.ContractsReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rental.Template"
+        mc:Ignorable="d"
+        Title="ContractsReport"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Height="600" Width="650">
+    <Border x:Name="MainBorder"  
+            Background="White"
+            Cursor="No" 
+            BorderBrush="LightGray" 
+            BorderThickness="0.5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Header -->
+                <RowDefinition Height="150"/>
+                <!-- Content -->
+                <RowDefinition Height="*"/>
+                <!-- Footer -->
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header Section -->
+            <Border Grid.Row="0">
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                    <!-- Logo -->
+                    <Image Source="pack://application:,,,/Resources/Logo.png"
+                         Width="60"
+                         Margin="0,6,0,0"/>
+
+                    <!-- Store Information -->
+                    <TextBlock TextAlignment="Center" 
+                             FontSize="12"
+                             FontWeight="Bold"
+                             Text="Gym"
+                             Margin="0,5,0,0"/>
+
+                    <TextBlock TextAlignment="Center" 
+                             FontSize="10"
+                             Text="Blk 1 Lot 21 Dagat Dagatan Caloocan City"/>
+
+
+
+                    <TextBlock TextAlignment="Center"
+                             FontSize="10"
+                             Text="Phone: 09951196351"
+                             TextWrapping="Wrap"/>
+
+                    <!-- Receipt Title -->
+                    <TextBlock TextAlignment="Center"
+                             FontSize="12"
+                             FontWeight="Bold"
+                             Margin="0,10,0,0"
+                             Text="Payment Report"
+                             TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Content Section -->
+            <Border Grid.Row="1" Margin="20,10">
+
+            </Border>
+
+            <!-- Footer Section -->
+            <Border Grid.Row="1">
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      x:Name="ClientsPayment" Style="{DynamicResource DataGridStyle1}"
+                      AutoGenerateColumns="False">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="PropName" CanUserResize="False"  Binding="{Binding PropName}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="FullName" CanUserResize="False"  Binding="{Binding FullName}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="MonthlyRent" CanUserResize="False"  Binding="{Binding MonthlyRent}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="DepositAmount" CanUserResize="False"  Binding="{Binding DepositAmount}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="StartDate" CanUserResize="False"  Binding="{Binding StartDate,StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="EndDate" CanUserResize="False"  Binding="{Binding EndDate,StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+            <Border Grid.Row="2">
+                <Button x:Name="Submit" Grid.Column="1" 
+                  Style="{StaticResource SubmitButton}" 
+                  Content="Print"
+                  Cursor="Hand"
+                  Background="Green"
+                  Click="Submit_Click"
+                  BorderThickness="0" 
+                  HorizontalAlignment="Center" Margin="0,28,0,28" Width="604" 
+      />
+            </Border>
+        </Grid>
+    </Border>
+</Window>

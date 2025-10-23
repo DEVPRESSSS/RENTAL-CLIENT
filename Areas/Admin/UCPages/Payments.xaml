@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="Rental.Areas.Admin.UCPages.Payments"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Rental.Areas.Admin.UCPages" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border x:Name="PageBorder" Background="White">
+
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+
+            </Grid.RowDefinitions>
+
+            <Border
+              Background="#F4F5F6"
+              BorderThickness="0,0,0,1"
+              Grid.Row="0">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="100"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0">
+
+                        <Label Content="Search:" Height="30"
+                          FontSize="16"
+                          HorizontalAlignment="Right"
+                          Margin="4"/>
+
+                    </Border>
+
+                    <Border Grid.Column="1">
+
+                        <TextBox x:Name="Search" Height="30"
+                      MaxLength="15" 
+                      FontSize="16"
+                      TextChanged="Search_TextChanged"
+                      Margin="5,4,3,5"/>
+
+                    </Border>
+
+                    <Border Grid.Column="2">
+
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+
+            <Border Grid.Row="1">
+                <!--Tenants Table-->
+
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+                ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                CellStyle="{DynamicResource DataGridCellStyle1}" 
+                x:Name="TenantTable" Style="{DynamicResource DataGridStyle1}"
+                ItemsSource="{Binding MembersCollection}"
+                SelectedItem="{Binding SelectedClient}"
+                AutoGenerateColumns="False">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="TenantId" CanUserResize="False"  Binding="{Binding TenantID}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Name" CanUserResize="False"  Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Contact" CanUserResize="False"  Binding="{Binding Contact}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Address" CanUserResize="False"  Binding="{Binding Address}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Email" CanUserResize="False"  Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="DateJoined" CanUserResize="False"  Binding="{Binding DateJoined, StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
+                        <DataGridTemplateColumn Header="Action" CanUserResize="False" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="EditBtn" Click="EditBtn_Click"  Style="{StaticResource gridEditButton}"
+                                        >
+                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                        <Button x:Name="DeleteBtn" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" Click="DeleteBtn_Click"
+                                            >
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Border>
+
+
+            <!---->
+
+            <!--<Border Grid.Row="2">
+
+                <Button x:Name="NewTenantButton"
+                   Style="{StaticResource CrudButton}"
+                   Cursor="Hand"
+                   Margin="0,5,10,5"
+                   Width="188"
+                   BorderThickness="0"
+                   Background="#0b8707"
+                   Grid.Column="1"
+                   HorizontalAlignment="Right"
+                   Click="">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Add" 
+                      VerticalAlignment="Center"
+                       Margin="0,0,5,0"
+                       Foreground="White"
+                      />
+
+                    </StackPanel>
+                </Button>
+            </Border>-->
+        </Grid>
+
+
+    </Border>
+</UserControl>

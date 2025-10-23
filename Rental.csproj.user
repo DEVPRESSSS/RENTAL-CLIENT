@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Areas\Admin\Forms\AddTenant.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\Contract\AddContract.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\Contract\EditContract.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\EditTenant.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\Pay\Add.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\Properties\AddProperties.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\Properties\UpdateProperties.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\UCPages\Contracts.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\UCPages\Dashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\UCPages\Payments.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\UCPages\Properties.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\UCPages\Tenants.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Auth\ChangePassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Auth\ForgotPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Auth\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Template\ContractsReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Areas\Admin\Forms\AddTenant.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\Contract\AddContract.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\Contract\EditContract.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\EditTenant.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\Pay\Add.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\Properties\AddProperties.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\Properties\UpdateProperties.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\UCPages\Contracts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\UCPages\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\UCPages\Payments.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\UCPages\Properties.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\UCPages\Tenants.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Auth\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Auth\ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Auth\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Template\ContractsReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
