@@ -99,6 +99,8 @@ namespace Rental.Areas.Admin.Forms.Contract
 
                 // Status
                 Status.Text = contract.Status;
+
+                
             }
         }
 

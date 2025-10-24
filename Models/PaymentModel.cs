@@ -11,6 +11,7 @@ namespace Rental.Models
 
         public string? PaymentId { get; set; }
         public string? TenantId { get; set; }
+        public string? Name { get; set; }
         public decimal? Amount { get; set; }
         public DateTime? DateOfPayment { get; set; }
     }

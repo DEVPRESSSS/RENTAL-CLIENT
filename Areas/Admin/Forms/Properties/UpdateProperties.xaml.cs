@@ -6,6 +6,7 @@ using Rental.Service;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -96,7 +97,10 @@ namespace Rental.Areas.Admin.Forms.Properties
                 MonthlyRent.Text = property.MonthlyRent?.ToString("F2");
                 Status.Text = property.Status;
                 Description.Text = property.Description;
-
+                if (property.Status == "Occupied")
+                {
+                    Submit.Visibility = Visibility.Hidden;
+                }
                 try
                 {
                     string query = "SELECT ImagePath FROM Properties WHERE PropertyID = @PropertyID";

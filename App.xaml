@@ -539,5 +539,89 @@
             <Setter Property="Height" Value="12" />
         </Style>
 
+        <Style TargetType="Border" x:Key="StockBorderStyle">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="MaxWidth" Value="80" />
+
+            <Style.Triggers>
+                <!-- Out of stock (red) -->
+                <DataTrigger Binding="{Binding StockStatus}" Value="NotAvailable">
+                    <Setter Property="Background" Value="#FF6969"/>
+                </DataTrigger>
+
+                <!-- Low stock (orange) -->
+                <DataTrigger Binding="{Binding StockStatus}" Value="Available">
+                    <Setter Property="Background" Value="Green"/>
+                </DataTrigger>
+
+                <!-- Low stock (orange) -->
+                <DataTrigger Binding="{Binding StockStatus}" Value="NoValue">
+                    <Setter Property="Background" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <Style TargetType="TextBlock" x:Key="StockTextStyle">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NotAvailable}" Value="True">
+                    <Setter Property="Foreground" Value="White" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Available}" Value="False">
+                    <Setter Property="Foreground" Value="White" />
+
+                </DataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Border" x:Key="ContractBorderStyle">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="MaxWidth" Value="80" />
+
+            <Style.Triggers>
+                <!-- Out of stock (red) -->
+                <DataTrigger Binding="{Binding StockStatus}" Value="NoContract">
+                    <Setter Property="Background" Value="#FF6969"/>
+                </DataTrigger>
+
+                <!-- Low stock (orange) -->
+                <DataTrigger Binding="{Binding StockStatus}" Value="ActiveContract">
+                    <Setter Property="Background" Value="Green"/>
+                </DataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
+
+
+
+        <Style TargetType="TextBlock" x:Key="RentTextStyle">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NoContract}" Value="True">
+                    <Setter Property="Foreground" Value="White" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ActiveContract}" Value="False">
+                    <Setter Property="Foreground" Value="White" />
+
+                </DataTrigger>
+
+
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

@@ -178,6 +178,8 @@ namespace Rental.Areas.Admin.Forms.Contract
                     return;
                 }
 
+
+                string? selectedPropertyId = ((PropertyModel)PropertyName.SelectedItem).PropertyID;
                 // Open connection
                 sqlConnection.Open();
 
@@ -200,6 +202,10 @@ namespace Rental.Areas.Admin.Forms.Contract
                         MessageBox.Show("Contract successfully added!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         tenantCreated?.Invoke(this, EventArgs.Empty);
 
+                        sqlConnection.Close();
+
+                        //Update property availability
+                        UpdateStatusOfProperty(selectedPropertyId);
                         Clear();
 
                     }
@@ -239,5 +245,40 @@ namespace Rental.Areas.Admin.Forms.Contract
             Deposit.Clear();
         }
 
+        private void UpdateStatusOfProperty(string? propertyId)
+        {
+
+            string query = @"UPDATE Properties SET Status = 'Occupied' WHERE PropertyID = @PropertyID";
+
+            try
+            {
+             
+                sqlConnection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                {
+                    cmd.Parameters.AddWithValue("@PropertyID",propertyId);
+                 
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Clear(); ;
+            }
+            finally
+            {
+                if (sqlConnection.State == System.Data.ConnectionState.Open)
+                    sqlConnection.Close();
+            }
+        }
     }
 }

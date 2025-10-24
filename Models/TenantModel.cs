@@ -17,6 +17,19 @@ namespace Rental.Models
         public decimal? MonthlyRent { get; set; }     
         public decimal? DepositAmount { get; set; }     
         public string? Status { get; set; }     
-        public DateTime DateJoined { get; set; } 
+        public DateTime DateJoined { get; set; }
+
+        public string StockStatus
+        {
+            get
+            {
+                if (Status == "Inactive")
+                    return "NoContract";
+                else if (string.IsNullOrEmpty(Status))
+                    return "NoValue";
+                else
+                    return "ActiveContract";
+            }
+        }
     }
 }

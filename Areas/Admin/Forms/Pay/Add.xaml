@@ -121,7 +121,7 @@
                  >
                 <Button x:Name="Submit" Grid.Column="1" 
                    Style="{StaticResource SubmitButton}" 
-                   Content="Submit"
+                   Content="Pay"
                    Cursor="Hand"
                    Background="Blue"
                    Click="Submit_Click"

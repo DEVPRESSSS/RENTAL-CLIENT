@@ -101,9 +101,9 @@ namespace Rental.Areas.Admin.UCPages
 
                         FetchAllTenants();
                     }
-                    catch (Exception Ex)
+                    catch 
                     {
-                        MessageBox.Show(Ex.Message);
+                        MessageBox.Show("This tenant has related records or active contract" ,"Error" ,MessageBoxButton.OK, MessageBoxImage.Error);
                         sqlConnection.Close();
 
                     }

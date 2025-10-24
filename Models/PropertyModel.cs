@@ -14,5 +14,16 @@ namespace Rental.Models
         public decimal? MonthlyRent { get; set; }        
         public string? Status { get; set; }               
         public string? Description { get; set; }
+
+        public string StockStatus
+        {
+            get
+            {
+                if (Status == "Occupied")
+                    return "NotAvailable";
+                else
+                    return "Available";
+            }
+        }
     }
 }

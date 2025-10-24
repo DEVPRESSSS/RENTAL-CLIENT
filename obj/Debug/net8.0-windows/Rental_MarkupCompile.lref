@@ -4,6 +4,7 @@ FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\AddTenant.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Contract\AddContract.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Contract\EditContract.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\EditTenant.xaml;;
+FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Pay\Add.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Properties\AddProperties.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Properties\UpdateProperties.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\UCPages\Contracts.xaml;;
@@ -16,5 +17,4 @@ FD:\Rental-20251022T132305Z-1-001\Rental\Auth\ForgotPassword.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Auth\Login.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\MainWindow.xaml;;
 FD:\Rental-20251022T132305Z-1-001\Rental\Template\ContractsReport.xaml;;
-FD:\Rental-20251022T132305Z-1-001\Rental\Areas\Admin\Forms\Pay\Add.xaml;;
 

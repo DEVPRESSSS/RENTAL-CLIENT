@@ -82,7 +82,16 @@
                         <DataGridTextColumn Header="Email" CanUserResize="False"  Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Rent" CanUserResize="False"  Binding="{Binding MonthlyRent}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="DepositAmount" CanUserResize="False"  Binding="{Binding DepositAmount}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Status" CanUserResize="False"  Binding="{Binding Status}" IsReadOnly="True" Width="*"/>
+                        <DataGridTemplateColumn Header="Contract Status">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource ContractBorderStyle}">
+                                        <TextBlock Text="{Binding Status}"
+                                        Style="{StaticResource RentTextStyle}" />
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header="DateJoined" CanUserResize="False"  Binding="{Binding DateJoined, StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
                         <DataGridTemplateColumn Header="Action" CanUserResize="False" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>

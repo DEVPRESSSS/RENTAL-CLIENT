@@ -66,37 +66,20 @@
                 <!--Tenants Table-->
 
                 <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
-                ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                CellStyle="{DynamicResource DataGridCellStyle1}" 
-                x:Name="TenantTable" Style="{DynamicResource DataGridStyle1}"
-                ItemsSource="{Binding MembersCollection}"
-                SelectedItem="{Binding SelectedClient}"
-                AutoGenerateColumns="False">
+                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                    CellStyle="{DynamicResource DataGridCellStyle1}" 
+                    x:Name="PaymentTable" Style="{DynamicResource DataGridStyle1}"
+                    ItemsSource="{Binding MembersCollection}"
+                    SelectedItem="{Binding SelectedClient}"
+                    AutoGenerateColumns="False">
 
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="TenantId" CanUserResize="False"  Binding="{Binding TenantID}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="PaymentId" CanUserResize="False"  Binding="{Binding PaymentId}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Name" CanUserResize="False"  Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Contact" CanUserResize="False"  Binding="{Binding Contact}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Address" CanUserResize="False"  Binding="{Binding Address}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Email" CanUserResize="False"  Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="DateJoined" CanUserResize="False"  Binding="{Binding DateJoined, StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
-                        <DataGridTemplateColumn Header="Action" CanUserResize="False" IsReadOnly="True" Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="EditBtn" Click="EditBtn_Click"  Style="{StaticResource gridEditButton}"
-                                        >
-                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                        <Button x:Name="DeleteBtn" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" Click="DeleteBtn_Click"
-                                            >
-                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Amount" CanUserResize="False"  Binding="{Binding Amount}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Date of Payment" CanUserResize="False"  Binding="{Binding DateOfPayment, StringFormat='yyyy-MM-dd'}" IsReadOnly="True" Width="*"/>
+                       
                     </DataGrid.Columns>
                 </DataGrid>
 

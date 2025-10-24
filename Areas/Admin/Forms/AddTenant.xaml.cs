@@ -91,6 +91,7 @@ namespace Rental.Areas.Admin
                         MessageBox.Show("Tenant added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         Clear();
                         tenantCreated?.Invoke(this, EventArgs.Empty);
+
                     }
                 }
             }
@@ -99,15 +100,21 @@ namespace Rental.Areas.Admin
                 if (ex.Message.Contains("UNIQUE"))
                 {
                     MessageBox.Show("Duplicate Name, Contact, or Email detected. Please use unique values.", "Duplicate Entry", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Clear();
+
                 }
                 else
                 {
                     MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Clear();
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Unexpected Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Clear();
+
             }
             finally
             {

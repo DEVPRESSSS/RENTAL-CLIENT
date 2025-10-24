@@ -99,11 +99,35 @@
                         <DataGridTextColumn Header="EndDate" 
                             Binding="{Binding EndDate, StringFormat='yyyy-MM-dd'}" 
                             IsReadOnly="True" Width="*" CanUserResize="False"/>
+                                            
+                        <DataGridTemplateColumn Header="Contract Status">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource ContractBorderStyle}">
+                                        <TextBlock Text="{Binding Status}"
+                                             Style="{StaticResource RentTextStyle}" />
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         
-                        <DataGridTextColumn Header="Status" 
-                         Binding="{Binding Status}" 
-                         IsReadOnly="True" Width="*" CanUserResize="False"/>
+                        <!-- Action buttons -->
+                        <DataGridTemplateColumn Header="Pay" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="RenewContract" 
+                                            Click="RenewContract_Click" 
+                                            Background="Green"
+                                             Style="{StaticResource gridEditButton}">
+                                            <Icon:PackIconMaterial Kind="BankCheck" 
+                                                Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
 
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <!-- Action buttons -->
                         <DataGridTemplateColumn Header="Action" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
@@ -127,22 +151,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <!-- Action buttons -->
-                        <DataGridTemplateColumn Header="" IsReadOnly="True" Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="RenewContract" 
-                                           Click="RenewContract_Click" 
-                                        Style="{StaticResource gridEditButton}">
-                                            <Icon:PackIconMaterial Kind="PencilOutline" 
-                                                Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                       
                     </DataGrid.Columns>
                 </DataGrid>
 

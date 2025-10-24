@@ -85,8 +85,10 @@ namespace Rental.Areas.Admin.Forms.Pay
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Payment added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Payment added successfully!,Contract renewed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         paymentUpdated?.Invoke(this, EventArgs.Empty);
+
+                        this.Close();
 
 
                     }

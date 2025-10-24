@@ -20,5 +20,16 @@ namespace Rental.Models
         public decimal? DepositAmount { get; set; }     
         public string? Status { get; set; }              
         public DateTime CreatedAt { get; set; }
+
+        public string StockStatus
+        {
+            get
+            {
+                if (Status == "Inactive")
+                    return "NoContract";
+                else
+                    return "ActiveContract";
+            }
+        }
     }
 }

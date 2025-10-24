@@ -123,7 +123,7 @@
                     <Label Content="Status"/>
                     <ComboBox x:Name="Status" Height="30" SelectedValuePath="Content">
                         <ComboBoxItem Content="Available"/>
-                        <ComboBoxItem Content="Not Available"/>
+                        <ComboBoxItem Content="Occupied"/>
                     </ComboBox>
 
 

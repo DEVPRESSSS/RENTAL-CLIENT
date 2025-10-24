@@ -95,9 +95,9 @@ namespace Rental.Areas.Admin.UCPages
 
                         FetchAllContracts();
                     }
-                    catch (Exception Ex)
+                    catch 
                     {
-                        MessageBox.Show(Ex.Message);
+                        MessageBox.Show("This contract has related records in payments", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         sqlConnection.Close();
 
                     }

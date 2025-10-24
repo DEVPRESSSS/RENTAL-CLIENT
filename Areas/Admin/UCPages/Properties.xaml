@@ -90,9 +90,19 @@
                                 Binding="{Binding MonthlyRent, StringFormat='₱{0:N2}'}" 
                                 IsReadOnly="True" Width="*" CanUserResize="False"/>
 
-                        <DataGridTextColumn Header="Status" 
+                        <!--<DataGridTextColumn Header="Status" 
                                 Binding="{Binding Status}" 
-                                IsReadOnly="True" Width="*" CanUserResize="False"/>
+                                IsReadOnly="True" Width="*" CanUserResize="False"/>-->
+                        <DataGridTemplateColumn Header="Stock Status">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource StockBorderStyle}">
+                                        <TextBlock Text="{Binding Status}"
+                                           Style="{StaticResource StockTextStyle}" />
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Description" 
                                 Binding="{Binding Description}" 
