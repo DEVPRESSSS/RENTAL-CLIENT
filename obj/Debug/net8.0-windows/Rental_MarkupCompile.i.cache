@@ -16,5 +16,5 @@ D:\Rental-20251022T132305Z-1-001\Rental\App.xaml
 260627629486
 Areas\Admin\Forms\AddTenant.xaml;Areas\Admin\Forms\Contract\AddContract.xaml;Areas\Admin\Forms\Contract\EditContract.xaml;Areas\Admin\Forms\EditTenant.xaml;Areas\Admin\Forms\Pay\Add.xaml;Areas\Admin\Forms\Properties\AddProperties.xaml;Areas\Admin\Forms\Properties\UpdateProperties.xaml;Areas\Admin\UCPages\Contracts.xaml;Areas\Admin\UCPages\Dashboard.xaml;Areas\Admin\UCPages\Payments.xaml;Areas\Admin\UCPages\Properties.xaml;Areas\Admin\UCPages\Tenants.xaml;Auth\ChangePassword.xaml;Auth\ForgotPassword.xaml;Auth\Login.xaml;MainWindow.xaml;Template\ContractsReport.xaml;
 
-True
+False
 

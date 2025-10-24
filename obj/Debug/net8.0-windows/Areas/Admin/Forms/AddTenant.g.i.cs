@@ -103,7 +103,7 @@ namespace Rental.Areas.Admin {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Rental;component/areas/admin/forms/addtenant.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Rental;V1.0.0.0;component/areas/admin/forms/addtenant.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Areas\Admin\Forms\AddTenant.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

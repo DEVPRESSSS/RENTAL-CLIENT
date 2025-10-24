@@ -86,6 +86,9 @@ namespace Rental.Areas.Admin.Forms.Pay
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Payment added successfully!,Contract renewed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        sqlConnection.Close();
+
+                        UpdateDates();
                         paymentUpdated?.Invoke(this, EventArgs.Empty);
 
                         this.Close();
@@ -113,11 +116,6 @@ namespace Rental.Areas.Admin.Forms.Pay
             }
         }
 
-        private void Clear()
-        {
-
-
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -146,6 +144,44 @@ namespace Rental.Areas.Admin.Forms.Pay
         private void Amount_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             HelperValidation.ValidationHelper.NoSpaceOnly(sender, e);
+
+        }
+
+        private void UpdateDates()
+        {
+            string query = @"UPDATE RentalContracts SET StartDate = @StartDate, EndDate = @EndDate WHERE ContractID = @ContractID";
+
+            try
+            {
+                DateTime startDate = DateTime.Now;
+                DateTime endDate = startDate.AddDays(30);
+
+                sqlConnection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                {
+                    cmd.Parameters.AddWithValue("@StartDate",DateTime.Now );
+                    cmd.Parameters.AddWithValue("@EndDate", endDate);
+                    cmd.Parameters.AddWithValue("@ContractID", contractId);
+
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                if (sqlConnection.State == System.Data.ConnectionState.Open)
+                    sqlConnection.Close();
+            }
 
         }
     }

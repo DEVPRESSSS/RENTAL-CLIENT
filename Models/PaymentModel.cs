@@ -14,5 +14,7 @@ namespace Rental.Models
         public string? Name { get; set; }
         public decimal? Amount { get; set; }
         public DateTime? DateOfPayment { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

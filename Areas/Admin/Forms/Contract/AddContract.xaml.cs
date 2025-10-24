@@ -170,6 +170,7 @@ namespace Rental.Areas.Admin.Forms.Contract
                 if (PropertyName.SelectedValue == null ||
                     TenantName.SelectedValue == null ||
                     StartDate.SelectedDate == null ||
+                    EndDate.SelectedDate == null ||
                     string.IsNullOrWhiteSpace(MonthlyRent.Text) ||
                     string.IsNullOrWhiteSpace(Deposit.Text))
                 {
@@ -177,7 +178,14 @@ namespace Rental.Areas.Admin.Forms.Contract
                     Clear();
                     return;
                 }
+                DateTime startDate = StartDate.SelectedDate.Value;
+                DateTime endDate = EndDate.SelectedDate.Value;
 
+                if (endDate < startDate)
+                {
+                    MessageBox.Show("End Date cannot be earlier than Start Date.", "Invalid Date", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 string? selectedPropertyId = ((PropertyModel)PropertyName.SelectedItem).PropertyID;
                 // Open connection

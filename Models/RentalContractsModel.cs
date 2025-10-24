@@ -18,8 +18,20 @@ namespace Rental.Models
         public DateTime? EndDate { get; set; }          
         public decimal? MonthlyRent { get; set; }         
         public decimal? DepositAmount { get; set; }     
-        public string? Status { get; set; }              
+        public string? Status { get; set; }
+        public int? CountOfDays
+        {
+            get
+            {
+                if (StartDate.HasValue && EndDate.HasValue)
+                    return (EndDate.Value - StartDate.Value).Days;
+                else
+                    return null;
+            }
+        }
         public DateTime CreatedAt { get; set; }
+
+        
 
         public string StockStatus
         {
@@ -29,6 +41,17 @@ namespace Rental.Models
                     return "NoContract";
                 else
                     return "ActiveContract";
+            }
+        }
+
+        public bool isDue
+        {
+            get
+            {
+                if (CountOfDays == 0)
+                    return true;
+                else
+                    return false;
             }
         }
     }

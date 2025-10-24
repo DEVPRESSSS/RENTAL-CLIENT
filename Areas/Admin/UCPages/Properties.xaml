@@ -93,7 +93,7 @@
                         <!--<DataGridTextColumn Header="Status" 
                                 Binding="{Binding Status}" 
                                 IsReadOnly="True" Width="*" CanUserResize="False"/>-->
-                        <DataGridTemplateColumn Header="Stock Status">
+                        <DataGridTemplateColumn Header="Status">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border Style="{StaticResource StockBorderStyle}">

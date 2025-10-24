@@ -150,7 +150,7 @@ namespace Rental.Areas.Admin.Forms.Contract
         private void LoadProperties()
         {
             var properties = new List<PropertyModel>();
-            string query = "SELECT PropertyID, PropertyName, MonthlyRent FROM Properties WHERE Status = 'Available' ORDER BY PropertyName ASC";
+            string query = "SELECT PropertyID, PropertyName, MonthlyRent FROM Properties ORDER BY PropertyName ASC";
 
             try
             {
@@ -208,10 +208,26 @@ namespace Rental.Areas.Admin.Forms.Contract
                 MessageBox.Show("Please select a start date.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            if (!EndDate.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Please select a start date.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(MonthlyRent.Text))
             {
                 MessageBox.Show("Monthly rent is required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+
+
+            }
+
+            DateTime startDate = StartDate.SelectedDate.Value;
+            DateTime endDate = EndDate.SelectedDate.Value;
+
+            if (endDate < startDate)
+            {
+                MessageBox.Show("End Date cannot be earlier than Start Date.", "Invalid Date", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -221,16 +237,16 @@ namespace Rental.Areas.Admin.Forms.Contract
                 return;
 
             string query = @"
-        UPDATE RentalContracts
-        SET 
-            PropertyID = @PropertyID,
-            TenantID = @TenantID,
-            StartDate = @StartDate,
-            EndDate = @EndDate,
-            MonthlyRent = @MonthlyRent,
-            DepositAmount = @DepositAmount,
-            Status = @Status
-        WHERE ContractID = @ContractID";
+                UPDATE RentalContracts
+                SET 
+                    PropertyID = @PropertyID,
+                    TenantID = @TenantID,
+                    StartDate = @StartDate,
+                    EndDate = @EndDate,
+                    MonthlyRent = @MonthlyRent,
+                    DepositAmount = @DepositAmount,
+                    Status = @Status
+                WHERE ContractID = @ContractID";
 
             try
             {

@@ -91,6 +91,9 @@
                         <DataGridTextColumn Header="Deposit" 
                               Binding="{Binding DepositAmount, StringFormat='₱{0:N2}'}" 
                               IsReadOnly="True" Width="*" CanUserResize="False"/>
+                        <DataGridTextColumn Header="Days" 
+                           Binding="{Binding CountOfDays}" 
+                           IsReadOnly="True" Width="*" CanUserResize="False"/>
 
                         <DataGridTextColumn Header="StartDate" 
                            Binding="{Binding StartDate, StringFormat='yyyy-MM-dd'}" 
@@ -119,7 +122,7 @@
                                         <Button x:Name="RenewContract" 
                                             Click="RenewContract_Click" 
                                             Background="Green"
-                                             Style="{StaticResource gridEditButton}">
+                                             Style="{StaticResource ButtonPay}">
                                             <Icon:PackIconMaterial Kind="BankCheck" 
                                                 Style="{StaticResource gridButtonIcon}"/>
                                         </Button>

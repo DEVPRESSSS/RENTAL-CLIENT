@@ -127,7 +127,7 @@ namespace Rental.Areas.Admin.Forms.Properties {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Rental;component/areas/admin/forms/properties/addproperties.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Rental;V1.0.0.0;component/areas/admin/forms/properties/addproperties.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\..\Areas\Admin\Forms\Properties\AddProperties.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
