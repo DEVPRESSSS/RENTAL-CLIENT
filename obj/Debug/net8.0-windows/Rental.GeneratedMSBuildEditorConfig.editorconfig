@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Rental
-build_property.ProjectDir = D:\Rental-20251022T132305Z-1-001\Rental\
+build_property.ProjectDir = D:\CLIENT_PROJECTS\RENTAL-CLIENT\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

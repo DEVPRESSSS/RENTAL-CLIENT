@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Rental-20251022T132305Z-1-001\Rental\obj\Debug\net8.0-windows\
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\
 Rental
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Rental-20251022T132305Z-1-001\Rental\App.xaml
-17-1406734379
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\App.xaml
+19-690252281
 
-29-1314793781
+32-479647103
 260627629486
-Areas\Admin\Forms\AddTenant.xaml;Areas\Admin\Forms\Contract\AddContract.xaml;Areas\Admin\Forms\Contract\EditContract.xaml;Areas\Admin\Forms\EditTenant.xaml;Areas\Admin\Forms\Pay\Add.xaml;Areas\Admin\Forms\Properties\AddProperties.xaml;Areas\Admin\Forms\Properties\UpdateProperties.xaml;Areas\Admin\UCPages\Contracts.xaml;Areas\Admin\UCPages\Dashboard.xaml;Areas\Admin\UCPages\Payments.xaml;Areas\Admin\UCPages\Properties.xaml;Areas\Admin\UCPages\Tenants.xaml;Auth\ChangePassword.xaml;Auth\ForgotPassword.xaml;Auth\Login.xaml;MainWindow.xaml;Template\ContractsReport.xaml;
+Areas\Admin\Forms\AddTenant.xaml;Areas\Admin\Forms\Contract\AddContract.xaml;Areas\Admin\Forms\Contract\EditContract.xaml;Areas\Admin\Forms\EditTenant.xaml;Areas\Admin\Forms\Pay\Add.xaml;Areas\Admin\Forms\Properties\AddProperties.xaml;Areas\Admin\Forms\Properties\UpdateProperties.xaml;Areas\Admin\UCPages\Contracts.xaml;Areas\Admin\UCPages\Dashboard.xaml;Areas\Admin\UCPages\Payments.xaml;Areas\Admin\UCPages\Properties.xaml;Areas\Admin\UCPages\Tenants.xaml;Areas\Admin\UCPages\Users.xaml;Areas\Staff\LayoutStaff.xaml;Auth\ChangePassword.xaml;Auth\ForgotPassword.xaml;Auth\Login.xaml;MainWindow.xaml;Template\ContractsReport.xaml;
 
-False
+True
 

@@ -32,13 +32,15 @@ namespace Rental.Areas.Admin.UCPages
         private SqlConnection sqlConnection;
         private CollectionViewSource collectionViewSource;
 
-        public Contracts()
+        private string _role;
+        public Contracts(string role)
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connection.ConnectionString);
             collectionViewSource = new CollectionViewSource();
 
             FetchAllContracts();
+            _role = role;
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -255,6 +257,14 @@ namespace Rental.Areas.Admin.UCPages
         private void RenewContract_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void DeleteBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_role == "ROLE-102")
+            {
+                ((Button)sender).Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

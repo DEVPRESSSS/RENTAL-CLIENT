@@ -79,7 +79,7 @@ namespace Rental.Areas.Admin.UCPages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Rental;V1.0.0.0;component/areas/admin/ucpages/payments.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Rental;component/areas/admin/ucpages/payments.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Areas\Admin\UCPages\Payments.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Rental.Areas.Staff;
 using Rental.DatabaseConnection;
 using System;
 using System.Collections.Generic;
@@ -233,6 +234,12 @@ namespace Rental.Auth
                                 MainWindow main = new MainWindow();
                                 main.Show();
                                 this.Close();
+                            }else if (role.Equals("ROLE-102", StringComparison.OrdinalIgnoreCase))
+                            {
+                                LayoutStaff main = new LayoutStaff(role);
+                                main.Show();
+                                this.Close();
+
                             }
                          
                         }

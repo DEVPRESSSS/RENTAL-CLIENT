@@ -30,12 +30,16 @@ namespace Rental.Areas.Admin.UCPages
         private readonly Connection connection = new Connection();
         private SqlConnection sqlConnection;
         private CollectionViewSource collectionViewSource;
-        public Properties()
+        private string _role;
+
+        public Properties(string role)
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connection.ConnectionString);
             collectionViewSource = new CollectionViewSource();
             FetchAllProperties();
+            _role = role;
+
         }
 
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
@@ -187,6 +191,14 @@ namespace Rental.Areas.Admin.UCPages
 
                 }
 
+            }
+        }
+
+        private void DeleteBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_role == "ROLE-102")
+            {
+                ((Button)sender).Visibility = Visibility.Collapsed;
             }
         }
     }

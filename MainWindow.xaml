@@ -146,7 +146,18 @@
                                     </StackPanel>
                                 </Button>
 
-                                <!--Logout -->
+                            <Button x:Name="Users" Style="{StaticResource menuButton}"  Margin="5"
+                                      Cursor="Hand" 
+                                      Width="160" 
+                                      Click="Users_Click"
+                                      >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Staff"  FontFamily="Roboto"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!--Logout -->
                                 <Button x:Name="Logout" Style="{StaticResource menuButton}"  Margin="5"
                                  Cursor="Hand"
                                     Width="160"

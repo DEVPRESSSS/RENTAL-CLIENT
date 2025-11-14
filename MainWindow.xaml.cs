@@ -32,7 +32,7 @@ namespace Rental
 
         private void TenantsBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Tenants();
+            MainContentArea.Content = new Tenants("ROLE-101");
         }
 
         private void Maximize_Click(object sender, RoutedEventArgs e)
@@ -67,13 +67,13 @@ namespace Rental
 
         private void Properties_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Properties();
+            MainContentArea.Content = new Properties("ROLE-101");
 
         }
 
         private void Contracts_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Contracts();
+            MainContentArea.Content = new Contracts("ROLE-101");
 
         }
 
@@ -99,6 +99,11 @@ namespace Rental
         private void Payment_Click(object sender, RoutedEventArgs e)
         {
             MainContentArea.Content = new Payments();
+        }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentArea.Content = new Users();
         }
     }
 }

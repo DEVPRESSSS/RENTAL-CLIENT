@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s+wITEsHRCnFNJCsVI/zbsPeCpSM0jnLwf1wJDtrGiMFXJEIofxENwx5z4uwe4sE0FbTWC3vDUarpoV+vm2g2g==",
+  "dgSpecHash": "OIJjffgNLB/DUZOd9Zfl69SbgThd+Gn5RB+SDgDUGBQjxpF6G7ElYVepQ33kQg8Gy6VSXFAa7QZIWanTa9QIgQ==",
   "success": true,
-  "projectFilePath": "D:\\Rental-20251022T132305Z-1-001\\Rental\\Rental.csproj",
+  "projectFilePath": "D:\\CLIENT_PROJECTS\\RENTAL-CLIENT\\Rental.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xmont\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\xmont\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

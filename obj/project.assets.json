@@ -3322,11 +3322,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Rental-20251022T132305Z-1-001\\Rental\\Rental.csproj",
+      "projectUniqueName": "D:\\CLIENT_PROJECTS\\RENTAL-CLIENT\\Rental.csproj",
       "projectName": "Rental",
-      "projectPath": "D:\\Rental-20251022T132305Z-1-001\\Rental\\Rental.csproj",
+      "projectPath": "D:\\CLIENT_PROJECTS\\RENTAL-CLIENT\\Rental.csproj",
       "packagesPath": "C:\\Users\\xmont\\.nuget\\packages\\",
-      "outputPath": "D:\\Rental-20251022T132305Z-1-001\\Rental\\obj\\",
+      "outputPath": "D:\\CLIENT_PROJECTS\\RENTAL-CLIENT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\xmont\\AppData\\Roaming\\NuGet\\NuGet.Config",

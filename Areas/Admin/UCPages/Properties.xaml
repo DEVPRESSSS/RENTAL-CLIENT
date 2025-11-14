@@ -122,7 +122,8 @@
                                         <Button x:Name="DeleteBtn" 
                                     Margin="5 0 0 0" 
                                     Style="{StaticResource gridRemoveButton}" 
-                                    Click="DeleteBtn_Click">
+                                    Click="DeleteBtn_Click"
+                                                Loaded="DeleteBtn_Loaded">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" 
                                                        Style="{StaticResource gridButtonIcon}"/>
                                         </Button>

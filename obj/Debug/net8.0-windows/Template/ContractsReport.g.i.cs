@@ -77,7 +77,7 @@ namespace Rental.Template {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Rental;V1.0.0.0;component/template/contractsreport.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Rental;component/template/contractsreport.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Template\ContractsReport.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
