@@ -83,7 +83,7 @@
 
                             <!--Employee-->
 
-                            <Button x:Name="Properties" Style="{StaticResource menuButton}"  Margin="5"
+                            <!--<Button x:Name="Properties" Style="{StaticResource menuButton}"  Margin="5"
                                         Cursor="Hand" 
                                         Width="160"
                                         Click="Properties_Click"
@@ -93,7 +93,7 @@
                                     <Icon:PackIconMaterial Kind="Door" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Properties" FontFamily="Roboto"/>
                                 </StackPanel>
-                            </Button>
+                            </Button>-->
 
 
                             <Button x:Name="TenantsBtn" Style="{StaticResource menuButton}"  Margin="5"

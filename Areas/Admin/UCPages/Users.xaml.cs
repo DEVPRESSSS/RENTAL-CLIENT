@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Rental.Areas.Admin.Forms;
+using Rental.Areas.Admin.Forms.User;
 using Rental.DatabaseConnection;
 using Rental.Models;
 using System;
@@ -38,12 +39,35 @@ namespace Rental.Areas.Admin.UCPages
 
         private void UserBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var users = new AddUser();
+            users.userCreated += (s, e) => {
+                FetchAllUsers();
+            };
+            users.ShowDialog();
         }
 
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (collectionViewSource?.View != null)
+            {
+                collectionViewSource.View.Filter = item =>
+                {
+                    var tenant = item as UserModel;
+                    if (tenant == null) return false;
 
+                    string searchText = Search.Text.Trim().ToLower();
+                    if (string.IsNullOrEmpty(searchText))
+                        return true;
+
+                    return
+                        (!string.IsNullOrEmpty(tenant.UserId) && tenant.UserId.ToLower().Contains(searchText)) ||
+                        (!string.IsNullOrEmpty(tenant.FullName) && tenant.FullName.ToLower().Contains(searchText)) ||
+                        (!string.IsNullOrEmpty(tenant.Contact) && tenant.Contact.ToLower().Contains(searchText)) ||
+                        (!string.IsNullOrEmpty(tenant.Username) && tenant.Username.ToLower().Contains(searchText)) ||
+                        (!string.IsNullOrEmpty(tenant.Email) && tenant.Email.ToLower().Contains(searchText)) ||
+                        (tenant.CreatedAt != DateTime.MinValue && tenant.CreatedAt.ToString("yyyy-MM-dd").Contains(searchText));
+                };
+            }
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -51,11 +75,11 @@ namespace Rental.Areas.Admin.UCPages
             var btn = sender as Button;
             if (btn == null) return;
 
-            var selectedTenant = btn.DataContext as TenantModel;
+            var selectedTenant = btn.DataContext as UserModel;
 
             if (selectedTenant != null)
             {
-                EditTenant updateTenant = new EditTenant
+                UpdateUser updateTenant = new UpdateUser
                 {
                     DataContext = selectedTenant
                 };
@@ -74,7 +98,7 @@ namespace Rental.Areas.Admin.UCPages
             var btn = sender as Button;
             if (btn == null) return;
 
-            var selectedClient = btn.DataContext as TenantModel;
+            var selectedClient = btn.DataContext as UserModel;
 
             if (selectedClient != null)
             {
@@ -91,7 +115,7 @@ namespace Rental.Areas.Admin.UCPages
                     {
                         sqlConnection.Open();
                         SqlCommand cmd = new SqlCommand("DELETE FROM Users WHERE UserID = @UserID", sqlConnection);
-                        cmd.Parameters.AddWithValue("@UserID", selectedClient.TenantID);
+                        cmd.Parameters.AddWithValue("@UserID", selectedClient.UserId);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("User deleted successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

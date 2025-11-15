@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\App.xaml
-19-690252281
+21-999008218
 
-32-479647103
+342026735643
 260627629486
-Areas\Admin\Forms\AddTenant.xaml;Areas\Admin\Forms\Contract\AddContract.xaml;Areas\Admin\Forms\Contract\EditContract.xaml;Areas\Admin\Forms\EditTenant.xaml;Areas\Admin\Forms\Pay\Add.xaml;Areas\Admin\Forms\Properties\AddProperties.xaml;Areas\Admin\Forms\Properties\UpdateProperties.xaml;Areas\Admin\UCPages\Contracts.xaml;Areas\Admin\UCPages\Dashboard.xaml;Areas\Admin\UCPages\Payments.xaml;Areas\Admin\UCPages\Properties.xaml;Areas\Admin\UCPages\Tenants.xaml;Areas\Admin\UCPages\Users.xaml;Areas\Staff\LayoutStaff.xaml;Auth\ChangePassword.xaml;Auth\ForgotPassword.xaml;Auth\Login.xaml;MainWindow.xaml;Template\ContractsReport.xaml;
+Areas\Admin\Forms\AddTenant.xaml;Areas\Admin\Forms\Contract\AddContract.xaml;Areas\Admin\Forms\Contract\EditContract.xaml;Areas\Admin\Forms\EditTenant.xaml;Areas\Admin\Forms\Pay\Add.xaml;Areas\Admin\Forms\Properties\AddProperties.xaml;Areas\Admin\Forms\Properties\UpdateProperties.xaml;Areas\Admin\Forms\User\AddUser.xaml;Areas\Admin\Forms\User\UpdateUser.xaml;Areas\Admin\UCPages\Contracts.xaml;Areas\Admin\UCPages\Dashboard.xaml;Areas\Admin\UCPages\Payments.xaml;Areas\Admin\UCPages\Properties.xaml;Areas\Admin\UCPages\Tenants.xaml;Areas\Admin\UCPages\Users.xaml;Areas\Staff\LayoutStaff.xaml;Auth\ChangePassword.xaml;Auth\ForgotPassword.xaml;Auth\Login.xaml;MainWindow.xaml;Template\ContractsReport.xaml;
 
 True
 

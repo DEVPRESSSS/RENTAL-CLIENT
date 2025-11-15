@@ -43,11 +43,11 @@ namespace Rental.Areas.Staff
 
         }
 
-        private void Properties_Click(object sender, RoutedEventArgs e)
-        {
-            MainContentArea.Content = new Properties(_role);
+        //private void Properties_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MainContentArea.Content = new Properties(_role);
 
-        }
+        //}
 
         private void Minimize_Click(object sender, RoutedEventArgs e)
         {

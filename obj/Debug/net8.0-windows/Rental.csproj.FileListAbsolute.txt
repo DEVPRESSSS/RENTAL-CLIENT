@@ -671,6 +671,8 @@ D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Edit
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Pay\Add.g.cs
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Properties\AddProperties.g.cs
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Properties\UpdateProperties.g.cs
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\User\AddUser.g.cs
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\User\UpdateUser.g.cs
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Contracts.g.cs
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Dashboard.g.cs
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Payments.g.cs
@@ -694,6 +696,8 @@ D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Edit
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Pay\Add.baml
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Properties\AddProperties.baml
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\Properties\UpdateProperties.baml
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\User\AddUser.baml
+D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\Forms\User\UpdateUser.baml
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Contracts.baml
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Dashboard.baml
 D:\CLIENT_PROJECTS\RENTAL-CLIENT\obj\Debug\net8.0-windows\Areas\Admin\UCPages\Payments.baml

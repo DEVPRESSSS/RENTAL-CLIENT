@@ -28,6 +28,12 @@
     <Compile Update="Areas\Admin\Forms\Properties\UpdateProperties.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Areas\Admin\Forms\User\AddUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Areas\Admin\Forms\User\UpdateUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Areas\Admin\UCPages\Contracts.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +88,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Areas\Admin\Forms\Properties\UpdateProperties.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\User\AddUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Areas\Admin\Forms\User\UpdateUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Areas\Admin\UCPages\Contracts.xaml">

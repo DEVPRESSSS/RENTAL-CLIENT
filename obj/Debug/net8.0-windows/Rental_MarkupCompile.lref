@@ -7,6 +7,8 @@ FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\EditTenant.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\Pay\Add.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\Properties\AddProperties.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\Properties\UpdateProperties.xaml;;
+FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\User\AddUser.xaml;;
+FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\Forms\User\UpdateUser.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\UCPages\Contracts.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\UCPages\Dashboard.xaml;;
 FD:\CLIENT_PROJECTS\RENTAL-CLIENT\Areas\Admin\UCPages\Payments.xaml;;
