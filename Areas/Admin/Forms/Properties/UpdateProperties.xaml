@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Rental.Areas.Admin.Forms.Properties" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="UpdateProperties"        
-        Height="520" 
+        Height="530" 
         Width="340"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"

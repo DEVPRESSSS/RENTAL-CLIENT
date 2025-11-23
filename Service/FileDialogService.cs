@@ -27,9 +27,13 @@ namespace Rental.Service
 
                 //Get the filename of the selected file
                 string fileName = Path.GetFileName(fullPath);
-
-                string destinantionPath = Path.Combine(resourceFolder, fileName);
-                File.Copy(fullPath, destinantionPath, true);
+    
+                if(!string.IsNullOrEmpty(fileName))
+                {
+                    string destinantionPath = Path.Combine(resourceFolder, fileName);
+                    File.Copy(fullPath, destinantionPath, true);
+                 }
+                    
 
                 return Path.Combine("Resources", fileName);
         }

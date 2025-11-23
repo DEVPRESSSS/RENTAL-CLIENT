@@ -91,6 +91,11 @@
                         <DataGridTextColumn Header="Deposit" 
                               Binding="{Binding DepositAmount, StringFormat='₱{0:N2}'}" 
                               IsReadOnly="True" Width="*" CanUserResize="False"/>
+
+                        <DataGridTextColumn Header="Balance" 
+                           Binding="{Binding Balance, StringFormat='₱{0:N2}'}" 
+                           IsReadOnly="True" Width="*" CanUserResize="False"/>
+                        
                         <DataGridTextColumn Header="Days" 
                            Binding="{Binding CountOfDays}" 
                            IsReadOnly="True" Width="*" CanUserResize="False"/>

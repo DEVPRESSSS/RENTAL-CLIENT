@@ -98,6 +98,7 @@
                          PreviewTextInput="Amount_PreviewTextInput"
                          PreviewKeyDown="Amount_PreviewKeyDown"
                         TextChanged="Amount_TextChanged"
+                             IsEnabled="True"
                        />
 
 

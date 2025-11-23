@@ -625,6 +625,7 @@
         </Style>
         
         
+        
         <!--Button hide triger-->
         <Style TargetType="Button" x:Key="ButtonPay">
             <Setter Property="Background" Value="Green" />

@@ -153,6 +153,27 @@ namespace Rental.Areas.Admin.UCPages
         {
             var contractModels = new List<RentalContractsModel>();
 
+            //string query = @"
+            //SELECT 
+            //    RC.ContractID,
+            //    RC.PropertyID,
+            //    P.PropertyName,
+            //    RC.TenantID,
+            //    T.Name AS FullName,
+            //    RC.StartDate,
+            //    RC.EndDate,
+            //    RC.MonthlyRent,
+            //    RC.MonthlyRent - RC.DepositAmount AS Balance,
+            //    RC.DepositAmount,
+            //    RC.Status,
+            //    RC.CreatedAt
+            //FROM RentalContracts RC
+            //INNER JOIN Properties P ON RC.PropertyID = P.PropertyID
+            //INNER JOIN Tenants T ON RC.TenantID = T.TenantID
+            //ORDER BY RC.CreatedAt DESC;";
+
+
+
             string query = @"
             SELECT 
                 RC.ContractID,
@@ -164,12 +185,33 @@ namespace Rental.Areas.Admin.UCPages
                 RC.EndDate,
                 RC.MonthlyRent,
                 RC.DepositAmount,
+
+                -- Compute Actual Balance
+                (RC.MonthlyRent - RC.DepositAmount) 
+                  - ISNULL(SUM(PY.Amount), 0) AS Balance,
+
                 RC.Status,
                 RC.CreatedAt
             FROM RentalContracts RC
             INNER JOIN Properties P ON RC.PropertyID = P.PropertyID
             INNER JOIN Tenants T ON RC.TenantID = T.TenantID
-            ORDER BY RC.CreatedAt DESC;";
+            LEFT JOIN Payments PY ON RC.ContractID = PY.ContractID
+            GROUP BY 
+                RC.ContractID,
+                RC.PropertyID,
+                P.PropertyName,
+                RC.TenantID,
+                T.Name,
+                RC.StartDate,
+                RC.EndDate,
+                RC.MonthlyRent,
+                RC.DepositAmount,
+                RC.Status,
+                RC.CreatedAt
+            ORDER BY RC.CreatedAt DESC;
+            ";
+
+
 
             try
             {
@@ -198,6 +240,9 @@ namespace Rental.Areas.Admin.UCPages
                                 : null,
                             DepositAmount = reader["DepositAmount"] != DBNull.Value
                                 ? Convert.ToDecimal(reader["DepositAmount"])
+                                : null,
+                            Balance = reader["Balance"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["Balance"])
                                 : null,
                             Status = reader["Status"].ToString(),
                             CreatedAt = reader["CreatedAt"] != DBNull.Value
