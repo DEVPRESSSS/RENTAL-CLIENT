@@ -100,7 +100,11 @@
                         TextChanged="Amount_TextChanged"
                              IsEnabled="True"
                        />
-
+                    <Label Content="Balance"/>
+                    <TextBox x:Name="Balance" Style="{StaticResource TextBoxes}"
+                       MaxLength="7"                    
+                       IsEnabled="False"
+                       />
 
                     <!--Client name-->
 

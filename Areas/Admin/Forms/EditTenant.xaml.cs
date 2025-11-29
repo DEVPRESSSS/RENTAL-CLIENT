@@ -147,6 +147,9 @@ namespace Rental.Areas.Admin.Forms
             {
                 if (sqlConnection.State == ConnectionState.Open)
                     sqlConnection.Close();
+
+
+                Clear();
             }
         }
 

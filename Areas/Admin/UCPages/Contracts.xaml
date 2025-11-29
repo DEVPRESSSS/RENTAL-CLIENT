@@ -92,10 +92,21 @@
                               Binding="{Binding DepositAmount, StringFormat='₱{0:N2}'}" 
                               IsReadOnly="True" Width="*" CanUserResize="False"/>
 
-                        <DataGridTextColumn Header="Balance" 
+                        <!--<DataGridTextColumn Header="Balance" 
                            Binding="{Binding Balance, StringFormat='₱{0:N2}'}" 
-                           IsReadOnly="True" Width="*" CanUserResize="False"/>
-                        
+                           IsReadOnly="True" Width="*" CanUserResize="False"/>-->
+
+                        <DataGridTemplateColumn Header="Balance">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource PaymentContract}">
+                                        <TextBlock Text="{Binding Balance, StringFormat='₱{0:N2}'}"
+                                        Style="{StaticResource RentTextStyle}" />
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
                         <DataGridTextColumn Header="Days" 
                            Binding="{Binding CountOfDays}" 
                            IsReadOnly="True" Width="*" CanUserResize="False"/>

@@ -55,5 +55,16 @@ namespace Rental.Models
                     return false;
             }
         }
+
+        public bool hasBalance
+        {
+            get
+            {
+                if (Balance > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
     }
 }

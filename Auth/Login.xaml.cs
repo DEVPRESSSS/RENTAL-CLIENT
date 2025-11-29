@@ -231,7 +231,7 @@ namespace Rental.Auth
 
                             if (role.Equals("ROLE-101", StringComparison.OrdinalIgnoreCase))
                             {
-                                MainWindow main = new MainWindow();
+                                MainWindow main = new MainWindow(user);
                                 main.Show();
                                 this.Close();
                             }else if (role.Equals("ROLE-102", StringComparison.OrdinalIgnoreCase))

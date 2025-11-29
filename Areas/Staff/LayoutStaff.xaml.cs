@@ -27,13 +27,13 @@ namespace Rental.Areas.Staff
         {
             InitializeComponent();
             _role = role;
-            MainContentArea.Content = new Contracts(_role);
+            MainContentArea.Content = new Contracts(_role,"");
 
         }
 
         private void Contracts_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Contracts(_role);
+            MainContentArea.Content = new Contracts(_role,"");
 
         }
 

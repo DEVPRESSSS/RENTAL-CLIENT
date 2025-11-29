@@ -62,6 +62,8 @@ namespace Rental.Areas.Admin
                     string.IsNullOrWhiteSpace(Email.Text))
                 {
                     MessageBox.Show("All fields are required.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Clear();
+
                     return;
                 }
 
@@ -69,6 +71,8 @@ namespace Rental.Areas.Admin
                 if (Contact.Text.Length < 11)
                 {
                     MessageBox.Show("Contact must be 11 digits.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Clear();
+
                     return;
                 }
 
@@ -120,6 +124,8 @@ namespace Rental.Areas.Admin
             {
                 if (sqlConnection.State == ConnectionState.Open)
                     sqlConnection.Close();
+                Clear();
+
             }
         }
 

@@ -33,7 +33,8 @@ namespace Rental.Areas.Admin.UCPages
         private CollectionViewSource collectionViewSource;
 
         private string _role;
-        public Contracts(string role)
+        private string _user;
+        public Contracts(string role,string user)
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connection.ConnectionString);
@@ -41,6 +42,7 @@ namespace Rental.Areas.Admin.UCPages
 
             FetchAllContracts();
             _role = role;
+            _user = user;
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -174,43 +176,82 @@ namespace Rental.Areas.Admin.UCPages
 
 
 
+            //string query = @"
+            //SELECT 
+            //    RC.ContractID,
+            //    RC.PropertyID,
+            //    P.PropertyName,
+            //    RC.TenantID,
+            //    T.Name AS FullName,
+            //    RC.StartDate,
+            //    RC.EndDate,
+            //    RC.MonthlyRent,
+            //    RC.DepositAmount,
+
+            //    -- Compute Actual Balance
+            //    (RC.MonthlyRent - RC.DepositAmount) 
+            //      - ISNULL(SUM(PY.Amount), 0) AS Balance,
+
+            //    RC.Status,
+            //    RC.CreatedAt
+            //FROM RentalContracts RC
+            //INNER JOIN Properties P ON RC.PropertyID = P.PropertyID
+            //INNER JOIN Tenants T ON RC.TenantID = T.TenantID
+            //LEFT JOIN Payments PY ON RC.ContractID = PY.ContractID
+            //GROUP BY 
+            //    RC.ContractID,
+            //    RC.PropertyID,
+            //    P.PropertyName,
+            //    RC.TenantID,
+            //    T.Name,
+            //    RC.StartDate,
+            //    RC.EndDate,
+            //    RC.MonthlyRent,
+            //    RC.DepositAmount,
+            //    RC.Status,
+            //    RC.CreatedAt
+            //ORDER BY RC.CreatedAt DESC;
+            //";
+
             string query = @"
-            SELECT 
-                RC.ContractID,
-                RC.PropertyID,
-                P.PropertyName,
-                RC.TenantID,
-                T.Name AS FullName,
-                RC.StartDate,
-                RC.EndDate,
-                RC.MonthlyRent,
-                RC.DepositAmount,
+                SELECT 
+                    RC.ContractID,
+                    RC.PropertyID,
+                    P.PropertyName,
+                    RC.TenantID,
+                    T.Name AS FullName,
+                    RC.StartDate,
+                    RC.EndDate,
+                    RC.MonthlyRent,
+                    RC.DepositAmount,
 
-                -- Compute Actual Balance
-                (RC.MonthlyRent - RC.DepositAmount) 
-                  - ISNULL(SUM(PY.Amount), 0) AS Balance,
+                    -- Balance cannot be negative
+                    CASE 
+                        WHEN (RC.MonthlyRent - RC.DepositAmount) - ISNULL(SUM(PY.Amount), 0) < 0
+                        THEN 0
+                        ELSE (RC.MonthlyRent - RC.DepositAmount) - ISNULL(SUM(PY.Amount), 0)
+                    END AS Balance,
 
-                RC.Status,
-                RC.CreatedAt
-            FROM RentalContracts RC
-            INNER JOIN Properties P ON RC.PropertyID = P.PropertyID
-            INNER JOIN Tenants T ON RC.TenantID = T.TenantID
-            LEFT JOIN Payments PY ON RC.ContractID = PY.ContractID
-            GROUP BY 
-                RC.ContractID,
-                RC.PropertyID,
-                P.PropertyName,
-                RC.TenantID,
-                T.Name,
-                RC.StartDate,
-                RC.EndDate,
-                RC.MonthlyRent,
-                RC.DepositAmount,
-                RC.Status,
-                RC.CreatedAt
-            ORDER BY RC.CreatedAt DESC;
-            ";
-
+                    RC.Status,
+                    RC.CreatedAt
+                FROM RentalContracts RC
+                INNER JOIN Properties P ON RC.PropertyID = P.PropertyID
+                INNER JOIN Tenants T ON RC.TenantID = T.TenantID
+                LEFT JOIN Payments PY ON RC.ContractID = PY.ContractID
+                GROUP BY 
+                    RC.ContractID,
+                    RC.PropertyID,
+                    P.PropertyName,
+                    RC.TenantID,
+                    T.Name,
+                    RC.StartDate,
+                    RC.EndDate,
+                    RC.MonthlyRent,
+                    RC.DepositAmount,
+                    RC.Status,
+                    RC.CreatedAt
+                ORDER BY RC.CreatedAt DESC;
+                ";
 
 
             try
@@ -272,7 +313,7 @@ namespace Rental.Areas.Admin.UCPages
         {
             var listOfPayments = ContractsTable.ItemsSource.Cast<RentalContractsModel>().ToList();
 
-            ContractsReport paymentReport = new ContractsReport(listOfPayments);
+            ContractsReport paymentReport = new ContractsReport(listOfPayments, _user);
             paymentReport.ShowDialog();
         }
 

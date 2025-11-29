@@ -22,12 +22,14 @@ namespace Rental.Template
     public partial class ContractsReport : Window
     {
         IEnumerable<RentalContractsModel> _models;
-
-        public ContractsReport(IEnumerable<RentalContractsModel> models)
+        private string _user;
+        public ContractsReport(IEnumerable<RentalContractsModel> models, string user)
         {
             InitializeComponent();
             _models = models;
-
+            _user = user;
+            User.Text = $"Printed by:{_user}";
+            Printed.Text = $"Date:{DateTime.Today.ToString("yyyy-MM-dd")}";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

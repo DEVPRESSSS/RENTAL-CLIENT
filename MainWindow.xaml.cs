@@ -18,11 +18,12 @@ namespace Rental
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private string _user;
+        public MainWindow(string user)
         {
             InitializeComponent();
             MainContentArea.Content = new Dashboard();
-
+            _user = user;
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace Rental
 
         private void Contracts_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Contracts("ROLE-101");
+            MainContentArea.Content = new Contracts("ROLE-101",_user);
 
         }
 

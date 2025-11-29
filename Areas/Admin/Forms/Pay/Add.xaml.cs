@@ -126,6 +126,7 @@ namespace Rental.Areas.Admin.Forms.Pay
                 contractId = data.ContractID;
                 TenantName.Text = data.FullName;
                 PropertyName.Text = data.PropName;
+                Balance.Text = data.Balance.ToString();
 
                 if(data.Balance <= 0)
                 {
