@@ -18,6 +18,7 @@ namespace Rental.Models
         public DateTime? EndDate { get; set; }          
         public decimal? MonthlyRent { get; set; }         
         public decimal? DepositAmount { get; set; }     
+        public decimal? CashAdvance { get; set; }     
         public decimal? Balance { get; set; }     
         public string? Status { get; set; }
         public int? CountOfDays

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Add" 
          Height="330" 
-          Width="300"
+          Width="450"
           WindowStartupLocation="CenterScreen"
           WindowStyle="None"
           AllowsTransparency="True"
@@ -81,18 +81,18 @@
                     <Label Content="Tenant name"/>
                     <TextBox x:Name="TenantName" Style="{StaticResource TextBoxes}"
                           MaxLength="30"
-                          IsReadOnly="True"
+                          IsEnabled="False"
                           />
 
                     <!--PaymentType-->
                     <Label Content="PropertyName"/>
                     <TextBox x:Name="PropertyName" Style="{StaticResource TextBoxes}"
-                    MaxLength="11"
+                    MaxLength="20" IsEnabled="False"
                     />
 
 
                     <!--PlanName-->
-                    <Label Content="Amount to pay"/>
+                    <Label Content="Suggested amount to pay base on the current balance or monthly rent:"/>
                     <TextBox x:Name="Amount" Style="{StaticResource TextBoxes}"
                        MaxLength="7" 
                          PreviewTextInput="Amount_PreviewTextInput"

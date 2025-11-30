@@ -70,6 +70,7 @@ namespace Rental.Areas.Admin.Forms.Pay
                     return;
                 }
 
+                //Calculate cash advance
                 // Open connection
                 sqlConnection.Open();
 
@@ -116,7 +117,7 @@ namespace Rental.Areas.Admin.Forms.Pay
             }
         }
 
-
+        decimal cashAdvance = 0;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var data = DataContext as RentalContractsModel;
@@ -127,10 +128,19 @@ namespace Rental.Areas.Admin.Forms.Pay
                 TenantName.Text = data.FullName;
                 PropertyName.Text = data.PropName;
                 Balance.Text = data.Balance.ToString();
+                cashAdvance = data.CashAdvance ?? 0m;
 
-                if(data.Balance <= 0)
+                if (data.Balance <= 0)
                 {
-                    Amount.Text = data.MonthlyRent.ToString();
+                    decimal rent = 0;
+                    decimal advance = 0;
+
+                    decimal.TryParse(data.MonthlyRent?.ToString(), out rent);
+                    decimal.TryParse(data.CashAdvance?.ToString(), out advance);
+
+                    var calculatedRent = rent - advance;
+                    Amount.Text = calculatedRent.ToString();
+
                     return;
                 }
                 Amount.Text = data.Balance.ToString();
@@ -156,12 +166,15 @@ namespace Rental.Areas.Admin.Forms.Pay
 
         private void UpdateDates()
         {
-            string query = @"UPDATE RentalContracts SET StartDate = @StartDate, EndDate = @EndDate WHERE ContractID = @ContractID";
+            string query = @"UPDATE RentalContracts SET StartDate = @StartDate, EndDate = @EndDate, CashAdvance= @CashAdvance WHERE ContractID = @ContractID";
 
             try
             {
                 DateTime startDate = DateTime.Now;
                 DateTime endDate = startDate.AddDays(30);
+                decimal cashAdvanceWith = 0;
+              
+                cashAdvanceWith = decimal.Parse(Amount.Text) - decimal.Parse(Balance.Text);
 
                 sqlConnection.Open();
 
@@ -169,6 +182,15 @@ namespace Rental.Areas.Admin.Forms.Pay
                 {
                     cmd.Parameters.AddWithValue("@StartDate",DateTime.Now );
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
+                    if (cashAdvance > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@CashAdvance", 0);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@CashAdvance", cashAdvanceWith);
+
+                    }
                     cmd.Parameters.AddWithValue("@ContractID", contractId);
 
 

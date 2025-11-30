@@ -187,6 +187,18 @@ namespace Rental.Areas.Admin.Forms.Contract
                     return;
                 }
 
+                decimal minimumDeposit = 0;
+                //Calculate deposit
+                if(decimal.TryParse(Deposit.Text, out var deposit))
+                {
+                    minimumDeposit = Convert.ToDecimal(MonthlyRent.Text) / 2;
+                    if(deposit < minimumDeposit)
+                    {
+                        MessageBox.Show("Minimum deposit should be 50% or Higher of the Rent", "Deposit minimum", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+                }
+
                 string? selectedPropertyId = ((PropertyModel)PropertyName.SelectedItem).PropertyID;
                 // Open connection
                 sqlConnection.Open();
@@ -199,7 +211,7 @@ namespace Rental.Areas.Admin.Forms.Contract
                     cmd.Parameters.AddWithValue("@StartDate", StartDate.SelectedDate.Value);
                     cmd.Parameters.AddWithValue("@EndDate", EndDate.SelectedDate ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@MonthlyRent", Convert.ToDecimal(MonthlyRent.Text));
-                    cmd.Parameters.AddWithValue("@DepositAmount", Convert.ToDecimal(Deposit.Text));
+                    cmd.Parameters.AddWithValue("@DepositAmount", deposit);
                     cmd.Parameters.AddWithValue("@Status", ((ComboBoxItem)Status.SelectedItem).Content.ToString());
                     cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
 

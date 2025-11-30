@@ -224,6 +224,7 @@ namespace Rental.Areas.Admin.UCPages
                     RC.EndDate,
                     RC.MonthlyRent,
                     RC.DepositAmount,
+                    RC.CashAdvance,
 
                     -- Balance cannot be negative
                     CASE 
@@ -248,6 +249,7 @@ namespace Rental.Areas.Admin.UCPages
                     RC.EndDate,
                     RC.MonthlyRent,
                     RC.DepositAmount,
+                    RC.CashAdvance,
                     RC.Status,
                     RC.CreatedAt
                 ORDER BY RC.CreatedAt DESC;
@@ -281,6 +283,9 @@ namespace Rental.Areas.Admin.UCPages
                                 : null,
                             DepositAmount = reader["DepositAmount"] != DBNull.Value
                                 ? Convert.ToDecimal(reader["DepositAmount"])
+                                : null,
+                            CashAdvance = reader["CashAdvance"] != DBNull.Value
+                                ? Convert.ToDecimal(reader["CashAdvance"])
                                 : null,
                             Balance = reader["Balance"] != DBNull.Value
                                 ? Convert.ToDecimal(reader["Balance"])

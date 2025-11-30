@@ -106,7 +106,10 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
+                        <DataGridTextColumn Header="Advance Payment" 
+                            Binding="{Binding CashAdvance, StringFormat='₱{0:N2}'}" 
+                            IsReadOnly="True" Width="*" CanUserResize="False"/>
+                        
                         <DataGridTextColumn Header="Days" 
                            Binding="{Binding CountOfDays}" 
                            IsReadOnly="True" Width="*" CanUserResize="False"/>
