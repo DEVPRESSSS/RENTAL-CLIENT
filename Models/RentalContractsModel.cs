@@ -41,6 +41,8 @@ namespace Rental.Models
             {
                 if (Status == "Inactive")
                     return "NoContract";
+                else if (Status == "Terminated")
+                    return "Terminated";
                 else
                     return "ActiveContract";
             }

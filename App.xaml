@@ -595,6 +595,9 @@
                 <DataTrigger Binding="{Binding StockStatus}" Value="NoContract">
                     <Setter Property="Background" Value="#FF6969"/>
                 </DataTrigger>
+                <DataTrigger Binding="{Binding StockStatus}" Value="Terminated">
+                    <Setter Property="Background" Value="#FF6969"/>
+                </DataTrigger>
 
                 <!-- Low stock (orange) -->
                 <DataTrigger Binding="{Binding StockStatus}" Value="ActiveContract">
