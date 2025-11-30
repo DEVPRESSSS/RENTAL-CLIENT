@@ -63,6 +63,20 @@ namespace Rental.Areas.Admin.Forms.Pay
 
             try
             {
+                if (!decimal.TryParse(Amount.Text, out decimal amountPaid))
+                {
+                    MessageBox.Show("Invalid amount.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    return;
+                }
+                if (amountPaid < calculatedRent)
+                {
+                    MessageBox.Show($"Amount must be at least {calculatedRent}.",
+                        "Payment Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    Amount.Text = calculatedRent.ToString();
+                    return;
+                }
                 // Validate required fields
                 if (string.IsNullOrWhiteSpace(Amount.Text))
                 {
@@ -118,6 +132,9 @@ namespace Rental.Areas.Admin.Forms.Pay
         }
 
         decimal cashAdvance = 0;
+        decimal rent = 0;
+        decimal advance = 0;
+        decimal calculatedRent = 0;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var data = DataContext as RentalContractsModel;
@@ -132,13 +149,12 @@ namespace Rental.Areas.Admin.Forms.Pay
 
                 if (data.Balance <= 0)
                 {
-                    decimal rent = 0;
-                    decimal advance = 0;
+                    
 
                     decimal.TryParse(data.MonthlyRent?.ToString(), out rent);
                     decimal.TryParse(data.CashAdvance?.ToString(), out advance);
 
-                    var calculatedRent = rent - advance;
+                    calculatedRent = rent - advance;
                     Amount.Text = calculatedRent.ToString();
 
                     return;
@@ -146,6 +162,8 @@ namespace Rental.Areas.Admin.Forms.Pay
                 Amount.Text = data.Balance.ToString();
             }
         }
+
+
 
         private void Amount_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -173,14 +191,14 @@ namespace Rental.Areas.Admin.Forms.Pay
                 DateTime startDate = DateTime.Now;
                 DateTime endDate = startDate.AddDays(30);
                 decimal cashAdvanceWith = 0;
-              
+
                 cashAdvanceWith = decimal.Parse(Amount.Text) - decimal.Parse(Balance.Text);
 
                 sqlConnection.Open();
 
                 using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                 {
-                    cmd.Parameters.AddWithValue("@StartDate",DateTime.Now );
+                    cmd.Parameters.AddWithValue("@StartDate", DateTime.Now);
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
                     if (cashAdvance > 0)
                     {
@@ -213,5 +231,7 @@ namespace Rental.Areas.Admin.Forms.Pay
             }
 
         }
+
+
     }
 }

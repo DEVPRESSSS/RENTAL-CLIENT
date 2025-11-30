@@ -135,6 +135,7 @@
                     <ComboBox x:Name="Status" Height="30" SelectedValuePath="Content" SelectionChanged="Status_SelectionChanged">
                         <ComboBoxItem Content="Active"/>
                         <ComboBoxItem Content="Inactive"/>
+                        <ComboBoxItem Content="Terminated"/>
                     </ComboBox>
 
 
